@@ -48,13 +48,14 @@ Web platform where anyone can get a personalised training app.
 - Added "Why it works" methodology section (3 pillars)
 - Sharpened hero subhead with expert-network angle
 
-## Iteration 3 (2026-02)
-- **Sprinter sample app** at `/app/sprinter` — 7-day split (Acceleration, Power, Tempo, Max Velocity, Posterior, Speed Endurance, Recovery), nutrition (3000 kcal · 200g protein), supplement stack with beta-alanine + beetroot, recovery protocols, sprint-specific morning routine
-- Landing samples grid expanded to 4 cards (Athlete · Longevity · Football · Sprinter)
-- **Admin login** at `/admin` — single password (env `ADMIN_PASSWORD`)
-- **Admin image manager** at `/admin/images` — 9 editable image slots (landing hero + 4 card images + 4 inside-app heroes). Upload files via Emergent object storage OR paste URL. Per-slot reset to default.
-- Backend image endpoints + Emergent object storage integration
-- 18/18 backend tests passing; admin auth + image overrides end-to-end verified by testing agent
+## Iteration 4 (2026-02) — Rebrand to Planlete + content editor + coach builder
+- **Rebrand**: Built.For.You → **Planlete** (brand) · "Built for You" (tagline). Updated header logo, page title, footer, all marketing copy.
+- **Admin text-content editor** at `/admin/content` — 35 editable text fields grouped into 7 sections (Hero, How it works, Sample cards, Sample apps, Pricing, For Coaches, Footer). Sidebar nav added between Text content + Images.
+- **Coach builder** (medium scope): coach signup/login at `/coach`, JWT auth (PyJWT + bcrypt), persistent session in localStorage + httpOnly cookie. `/coach/dashboard` with two tabs — Client plans + Brand & logo.
+- **Per-coach branding**: logo upload (Emergent object storage), primary & secondary colour pickers, brand-name editing. Brand applies live via CSS variables (`--accent` / `--brand-bg`) consumed by the shared AppShell.
+- **Branded client plans**: coach picks a template (Athlete/Longevity/Football/Sprinter), names the client, optionally adds notes → gets a unique shareable link `/c/{coach_slug}/{client_slug}` rendered with the coach's brand on top.
+- **No-subscription positioning**: "Pay only when you create a client plan. Cancel by simply not coming back." Loud on landing page Coaches section and inside the coach signup page.
+- Backend: 40/40 pytest tests pass. Frontend: all critical flows verified by testing agent. No product bugs.
 
 ## Deferred / Backlog
 ### P0 (next sprint)
